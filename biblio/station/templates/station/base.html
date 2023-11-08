@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'station/main.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'Home' %}">Books</a>
+
+    <div class="collapse navbar-collapse" id="navbarsExample09">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'my_books' %}">My Books</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'read_books' %}">I GOT IT</a>
+        </li>
+        {% if user.is_staff %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'return_book' %}">Return Book</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'issue_book' %}">Outgoing books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'manage_readers' %}">Manage Readers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'reader_list' %}">Reader List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_reader' %}">Add Reader</a>
+        </li>
+
+        {% endif %}
+      </ul>
+
+      {% if not user.is_authenticated %}
+      <a href="{% url 'registrate' %}">
+        <button class="btn btn-outline-warning">Регистрация</button>
+      </a>
+      <a href="{% url 'user' %}" class="ml-2">
+        <button class="btn btn-outline-info">Войти</button>
+      </a>
+      {% else %}
+      <a href="{% url 'exit' %}" class="ml-2">
+        <button class="btn btn-outline-info">Выйти</button>
+      </a>
+      {% endif %}
+    </div>
+  </nav>
+
+
+  <div class="container mt-4" >
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

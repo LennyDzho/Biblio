@@ -1,0 +1,10 @@
+{% extends 'station/base.html' %}
+
+{% block content %}
+  <h1>Возврат книги</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Вернуть книгу">
+    </form>
+{% endblock %}

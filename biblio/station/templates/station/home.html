@@ -1,0 +1,25 @@
+{% extends 'station/base.html' %}
+
+{% block title %}
+  текст
+{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for book in available_books %}
+            <div class="alert alert-light" style="margin: 0 auto; width: 100%";>
+               <h1>{{ book.title }}</h1>
+               <p>{{ book.text }}</p>
+               <span class="text-muted">Дата публикации: {{ book.date }}</span>
+               <p><b>Автор:</b> {{ book.author }} </p>
+           </div>
+        {% empty %}
+            <li>Нет доступных книг.
+        {% endfor %}
+    </ul>
+  {% for obj in Book_obj %}
+
+  {% endfor %}
+{% endblock %}
+
+

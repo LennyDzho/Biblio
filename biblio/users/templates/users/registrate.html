@@ -1,0 +1,18 @@
+{% extends 'station/base.html' %}
+
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <form method="post" class="form-register">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-warning" type="submit">Зарегистрироваться</button>
+    <hr>
+    <p>Уже зарегистрованы? <a href="{% url 'user' %}">Войти в личный кабинет</a></p>
+  </form>
+  </form>
+{% endblock %}

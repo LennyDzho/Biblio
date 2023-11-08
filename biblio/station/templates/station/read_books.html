@@ -1,0 +1,16 @@
+{% extends 'station/base.html' %}
+
+{% block title %}
+  текст
+{% endblock %}
+
+{% block content %}
+   <h1>Мои прочитанные книги</h1>
+    <ul>
+        {% for book in returned_books %}
+            <li>{{ book.title }} ({{ book.author }})</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+

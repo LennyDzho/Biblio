@@ -1,0 +1,22 @@
+body {
+  background: #fafafa;
+
+}
+
+.form-register ul.errorlist {
+    color: #ca5858;
+    font-weight: bold;
+}
+
+.form-register.auth input {
+  display: block;
+  width: 96%;
+  margin-top: 5px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  padding: 2%;
+}
+
+.alert-light {
+  border-color: #bfbfbf;
+}

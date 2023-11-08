@@ -1,0 +1,11 @@
+{% extends 'station/base.html' %}
+
+{% block content %}
+  <h1>Список читателей</h1>
+    <ul>
+        {% for reader in readers %}
+            <li><a href="{% url 'edit_reader' reader.id %}">{{ reader.last_name }}, {{ reader.first_name }}</a> (<a href="{% url 'delete_reader' reader.id %}">Удалить</a>)</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_reader' %}">Добавить читателя</a>
+{% endblock %}

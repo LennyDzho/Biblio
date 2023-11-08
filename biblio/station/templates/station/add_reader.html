@@ -1,0 +1,11 @@
+{% extends 'station/base.html' %}
+
+{% block content %}
+  <h1>Добавление читателя</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Добавить</button>
+    </form>
+    <a href="{% url 'reader_list' %}">Вернуться к списку читателей</a>
+{% endblock %}
